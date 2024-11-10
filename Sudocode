@@ -1,0 +1,14 @@
+function hybridSort(array, depthLimit):
+    if len(array) <= threshold:
+        insertionSort(array)
+    elif depthLimit == 0:
+        mergeSort(array)
+    else:
+        pivot = choosePivot(array)
+        left, right = partition(array, pivot)
+        hybridSort(left, depthLimit - 1)
+        hybridSort(right, depthLimit - 1)
+
+# Call with initial depth limit
+depthLimit = 2 * log(len(array))
+hybridSort(array, depthLimit)
